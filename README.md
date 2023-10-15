@@ -5,6 +5,7 @@ Given pandas DataFrame, function outputs SQL-statement, which produces a table c
 inputs: 
   df:pandas Dataframe,
   sql_variant:string 
+
 output: 
   string 
 
