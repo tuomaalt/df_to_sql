@@ -9,7 +9,7 @@ def _df_to_tsql_string(df:pd.DataFrame) ->str:
     >>> import pandas as pd
     >>> df = pd.DataFrame({"col1":[1, 2, 3], "col2":[4, 5, 6]})
     >>> _df_to_tsql_string(df)
-    'SELECT t1.* FROM (VALUES(1, 4),(2, 5),(3, 6)) AS t1(col1, col2)'
+    "SELECT t1.* FROM (VALUES('1', '4'),('2', '5'),('3', '6')) AS t1(col1, col2)"
     '''
 
     values = _df_values_to_tsql(df)
@@ -26,7 +26,7 @@ def _df_values_to_tsql(df:pd.DataFrame) ->str:
     >>> import pandas as pd
     >>> df = pd.DataFrame({"col1":[1, 2, 3], "col2":[4, 5, 6]})
     >>> _df_values_to_tsql(df)
-    '(1, 4),(2, 5),(3, 6)'
+    '('1', '4'),('2', '5'),('3', '6')'
     '''
 
     if len(df.index) < 1:
@@ -37,7 +37,7 @@ def _df_values_to_tsql(df:pd.DataFrame) ->str:
     rows_list = []
 
     for row in df.index:
-        rows_string = "("+", ".join([str(x) for x in df.loc[row,:].astype(str).values])+")"
+        rows_string = "("+", ".join(["'"+str(x)+"'" for x in df.loc[row,:].astype(str).values])+")"
         rows_list.append(rows_string)
     
     other_rows_string = ",".join(rows_list)
