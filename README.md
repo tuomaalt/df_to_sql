@@ -1,6 +1,6 @@
 # df_to_sql
 
-Output SQL-statement produces a table containing the data in input dataframe when run. 
+Given pandas DataFrame, function outputs SQL-statement, which produces a table containing the data in input dataframe when run in SQL database. 
 
 inputs: 
   df:pandas Dataframe,
