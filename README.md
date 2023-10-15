@@ -23,7 +23,7 @@ NOTE: More precies datatypes are left to user and all values in output SQL-state
     "SELECT t1.* FROM (VALUES('1' as col1, '4' as col2),('2', '5'),('3', '6')) AS t1"
 
 # Potential use cases
-Complex sequential queries where results of a previous query are used as inputs to next one. 
+Sequence of queries where results of a previous query are used as inputs to next one. 
 
 In some cases it might make sense to run queries independently, e.g say when data is in separate servers or database is not optimized properly, and more sophisticated ETL-tools are not available.
 Example: you need to fetch dates when a customer first filled some complex set of conditions (say, purchsed a particular combination of products) and then fetch a set of furhter records based on that date & customer-combination.
