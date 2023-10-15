@@ -6,3 +6,4 @@ class sql_variant(Enum):
     tsql=2
     postgre=3
     sqlite=4
+    plsql=5
