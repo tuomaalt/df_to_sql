@@ -11,6 +11,17 @@ output:
 
 NOTE: More precies datatypes are left to user and all values in output SQL-statement are strings to mitigate datatype errors.
 
+    Usage example:
+    >>> import pandas as pd
+    >>> df = pd.DataFrame({"col1":[1, 2, 3], "col2":[4, 5, 6]})
+    >>> df_to_sql_statement(df, "TSQL")
+    'SELECT t1.* FROM (VALUES(1, 4),(2, 5),(3, 6)) AS t1(col1, col2)'
+    
+    >>> import pandas as pd
+    >>> df = pd.DataFrame({"col1":[1, 2, 3], "col2":[4, 5, 6]})
+    >>> df_to_sql_statement(df, "MySQL")
+    "SELECT t1.* FROM (VALUES('1' as col1, '4' as col2),('2', '5'),('3', '6')) AS t1"
+
 Potential usage:
 Complex sequential queries where results of a previous query are used as inputs to next one. In some cases it might make sense to run queries independently, e.g say when data is in separate servers or database is not optimized properly, and more sophisticated ETL-tools are not available.
 
