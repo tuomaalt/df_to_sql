@@ -3,7 +3,7 @@ import pandas as pd
 
 def _df_to_tsql_string(df:pd.DataFrame) ->str:
     '''
-    Sub-function fo df_to_sql_query. Meant to be internal to _df_to_tsql_string-function
+    tsql specific implementation of df_to_sql_query. 
     
     Usage example:
     >>> import pandas as pd

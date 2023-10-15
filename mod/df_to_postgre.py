@@ -2,8 +2,8 @@ import pandas as pd
 
 def _df_to_postgre_string(df:pd.DataFrame) ->str:
     '''
-    Sub-function fo df_to_sql_query. Meant to be internal to _df_to_tsql_string-function
-    
+    postgre specific implementation of df_to_sql_query. 
+
     Usage example:
     >>> import pandas as pd
     >>> df = pd.DataFrame({"col1":[1, 2, 3], "col2":[4, 5, 6]})
