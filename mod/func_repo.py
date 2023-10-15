@@ -6,5 +6,5 @@ from mod.df_to_postgress import _df_to_postgress_string
 func_repo = {    
     sql_variant.mysql:_df_to_mysql_string,
     sql_variant.tsql:_df_to_tsql_string,
-    sql_variant.postgress:_df_to_postgress_string
+    sql_variant.postgre:_df_to_postgress_string
     }
