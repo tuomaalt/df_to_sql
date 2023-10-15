@@ -1,4 +1,3 @@
-from enum import Enum
 import pandas as pd
 
 from mod.sql_variant_enum import sql_variant
