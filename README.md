@@ -15,7 +15,7 @@ NOTE: More precies datatypes are left to user and all values in output SQL-state
     >>> import pandas as pd
     >>> df = pd.DataFrame({"col1":[1, 2, 3], "col2":[4, 5, 6]})
     >>> df_to_sql_statement(df, "TSQL")
-    'SELECT t1.* FROM (VALUES(1, 4),(2, 5),(3, 6)) AS t1(col1, col2)'
+    "SELECT t1.* FROM (VALUES(1, 4),(2, 5),(3, 6)) AS t1(col1, col2)"
     
     >>> import pandas as pd
     >>> df = pd.DataFrame({"col1":[1, 2, 3], "col2":[4, 5, 6]})
