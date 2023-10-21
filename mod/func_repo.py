@@ -8,7 +8,7 @@ from mod.df_to_plsql import _df_to_plsql_string
 func_repo = {    
     sql_variant.mysql:_df_to_mysql_string,
     sql_variant.tsql:_df_to_tsql_string,
-    sql_variant.postgre:_df_to_postgre_string,
+    sql_variant.pgsql:_df_to_postgre_string,
     sql_variant.sqlite:_df_to_sqlite_string,
     sql_variant.plsql:_df_to_plsql_string
     }

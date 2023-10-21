@@ -22,7 +22,7 @@ def df_to_sql_statement(df:pd.DataFrame, sql_variant_name:str) -> str:
 
     >>> import pandas as pd
     >>> df = pd.DataFrame({"col1":[1, 2, 3], "col2":[4, 5, 6]})
-    >>> df_to_sql_statement(df, "Postgre")
+    >>> df_to_sql_statement(df, "PGSQL")
     "SELECT t1.* FROM (VALUES('1', '4'),('2', '5'),('3', '6')) AS t1(col1, col2)"
 
     >>> import pandas as pd
