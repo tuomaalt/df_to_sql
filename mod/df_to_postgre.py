@@ -12,10 +12,10 @@ def _df_to_postgre_string(df:pd.DataFrame) ->str:
     "SELECT t1.* FROM (VALUES('1', '4'),('2', '5'),('3', '6')) AS t1(col1, col2)"
     '''
 
-    values = _df_values_to_postgre(df)
-    names = _df_names_to_postgrel(df)
+    _values_ = _df_values_to_postgre(df)
+    _names_ = _df_names_to_postgrel(df)
 
-    return f"SELECT t1.* FROM (VALUES{values}) AS t1({names})"
+    return f"SELECT t1.* FROM (VALUES{_values_}) AS t1({_names_})"
 
 
 def _df_values_to_postgre(df:pd.DataFrame) ->str:
@@ -28,7 +28,7 @@ def _df_values_to_postgre(df:pd.DataFrame) ->str:
     >>> _df_values_to_postgre(df)
     '('1', '4'),('2', '5'),('3', '6')'
     '''
-    
+
     return _df_values_to_sql(df)
 
 def _df_names_to_postgrel(df:pd.DataFrame) -> str:

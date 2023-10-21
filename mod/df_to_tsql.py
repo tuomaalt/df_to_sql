@@ -13,10 +13,10 @@ def _df_to_tsql_string(df:pd.DataFrame) ->str:
     "SELECT t1.* FROM (VALUES('1', '4'),('2', '5'),('3', '6')) AS t1(col1, col2)"
     '''
 
-    values = _df_values_to_tsql(df)
-    names = _df_names_to_tsql(df)
+    _values_ = _df_values_to_tsql(df)
+    _names_ = _df_names_to_tsql(df)
 
-    return f"SELECT t1.* FROM (VALUES{values}) AS t1({names})"
+    return f"SELECT t1.* FROM (VALUES{_values_}) AS t1({_names_})"
 
 
 def _df_values_to_tsql(df:pd.DataFrame) ->str:
@@ -31,6 +31,7 @@ def _df_values_to_tsql(df:pd.DataFrame) ->str:
     '''
 
     return _df_values_to_sql(df)
+
 
 def _df_names_to_tsql(df:pd.DataFrame) -> str:
     '''
