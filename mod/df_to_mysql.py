@@ -57,7 +57,7 @@ def _df_first_row_to_mysql(df:pd.DataFrame) -> str:
     "('1' as col1, '4' as col2)"
     '''
 
-    first_row_df = df.loc[0,:].copy()
+    first_row_df = df.loc[0,:].copy(deep=True)
     first_row_df = first_row_df.astype(str)
     first_row_zip = zip(first_row_df.values, first_row_df.index)
     first_row_string = ", ".join([f"'{v}' as {c}" for v, c in first_row_zip])
