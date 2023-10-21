@@ -1,4 +1,5 @@
 import pandas as pd
+from mod.df_values_to_sql import _df_values_to_sql
 
 
 def _df_to_tsql_string(df:pd.DataFrame) ->str:
@@ -29,20 +30,7 @@ def _df_values_to_tsql(df:pd.DataFrame) ->str:
     '('1', '4'),('2', '5'),('3', '6')'
     '''
 
-    if len(df.index) < 1:
-        return ''
-
-    rows_df = df.copy()
-    rows_df = rows_df.astype(str)
-    rows_list = []
-
-    for row in df.index:
-        rows_string = "("+", ".join(["'"+str(x)+"'" for x in df.loc[row,:].astype(str).values])+")"
-        rows_list.append(rows_string)
-    
-    other_rows_string = ",".join(rows_list)
-
-    return other_rows_string
+    return _df_values_to_sql(df)
 
 def _df_names_to_tsql(df:pd.DataFrame) -> str:
     '''
