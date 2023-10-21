@@ -41,7 +41,7 @@ def _df_other_rows_to_mysql(df:pd.DataFrame) ->str:
     if len(df.index) < 2:
         return ""
 
-    other_rows_df = df.loc[1:,:].copy(deep=True)
+    other_rows_df = df.loc[1:,:]
 
     return "," + _df_values_to_sql(other_rows_df)
 
